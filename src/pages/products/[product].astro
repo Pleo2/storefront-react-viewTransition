@@ -40,6 +40,8 @@ const productImages = await Promise.all(
 );
 const firstImage = productImages[0];
 if (!firstImage) throw new Error(`No images found for product ${id}`);
+
+console.log(product.name.toLocaleLowerCase().replace(/\s/g, '-'), 'first image name');
 ---
 
 <PrimaryLayout title={`Astro Shop | ${product.name}`}>
@@ -61,6 +63,7 @@ if (!firstImage) throw new Error(`No images found for product ${id}`);
 					) : (
 						<Card class="aspect-square justify-center">
 							<img
+								transition:name={`${product.name.toLocaleLowerCase().replace(/\s/g, '-')}`}
 								src={firstImage.src}
 								srcset={firstImage.srcSet.attribute}
 								sizes={firstImage.attributes.sizes}

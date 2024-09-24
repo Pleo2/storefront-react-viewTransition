@@ -17,10 +17,10 @@ const products = filterProducts(productsResponse.data?.items ?? []).filter(
 ---
 
 <ProductCarousel {heading} client:idle>
-	<ul class="flex w-max pb-4" style={{ gap: GAP + 'px' }}>
+	<ul class="flex w-max pb-4 over" style={{ gap: GAP + 'px' }}>
 		{
 			products.map((product, idx) => (
-				<li id={idx === 0 ? MEASURED_ITEM_ID : undefined} class="shrink-0 snap-start">
+				<li id={idx === 0 ? MEASURED_ITEM_ID : undefined} class="w-72 shrink-0 snap-start">
 					<ProductCard {...product} class="w-72" imageLoading={idx === 0 ? 'eager' : 'lazy'} />
 				</li>
 			))
